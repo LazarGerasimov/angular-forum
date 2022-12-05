@@ -8,11 +8,16 @@ import { ApiService } from '../api.service';
 })
 export class ThemeListComponent implements OnInit {
 
-  constructor (private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.loadThemes().subscribe((value) => {
-      console.log(value)
-    })
+    this.apiService.loadThemes().subscribe({
+      next: (value) => {
+        console.log(value)
+      },
+      error: (err) => {
+        console.error(err)
+      }
+    });
   }
 }
