@@ -13,7 +13,11 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   loadThemes() {
-    return this.httpClient
+    return this.httpClient.get(`${apiUrl}/themes`);
+  }
+
+  loadPosts(limit?: number) {
+    return this.httpClient.get(`${apiUrl}/posts${limit ? `?limit=${limit}` : ``}`);
   }
 
 }
