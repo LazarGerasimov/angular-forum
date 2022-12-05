@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ThemeListComponent } from './theme-list/theme-list.component';
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeListComponent,
-    RecentPostsComponent
+    RecentPostsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
