@@ -9,19 +9,22 @@ import { CoreModule } from './core/core.module';
 import { ThemeListComponent } from './theme-list/theme-list.component';
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { MainComponent } from './main/main.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeListComponent,
     RecentPostsComponent,
-    MainComponent
+    MainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

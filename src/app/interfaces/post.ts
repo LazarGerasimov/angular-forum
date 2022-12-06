@@ -7,7 +7,7 @@ export interface IPost {
     text: string;
     userId: IUser
     themeId: ITheme, 
-    createdAt: string;
+    created_at: string;
     updatedAt: string;
     __v: number
 }
