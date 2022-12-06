@@ -1,4 +1,7 @@
 <!-- theme component  -->
+
+<app-loader *ngIf="!themeList"></app-loader>
+
 <div *ngFor="let theme of themeList" class="theme-container">
     <div class="theme-name-wrapper">
         <div class="theme-name">
