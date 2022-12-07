@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from "@angular/router";
 import { NewThemeComponent } from "./new-theme/new-theme.component";
+import { ThemeDetailComponent } from "./theme-detail/theme-detail.component";
 //import { ThemeListComponent } from "./theme-list/theme-list.component";
 
 
@@ -14,6 +15,10 @@ const routes: Routes = [
             {
                 path: 'new',
                 component: NewThemeComponent
+            },
+            {
+                path: 'detail/:id',
+                component: ThemeDetailComponent
             }
         ]
     }
