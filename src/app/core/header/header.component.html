@@ -4,6 +4,7 @@
             <p class="logo"><span class="logo">SoftUni Forum</span></p>
         </div>
         <div class="mini-navbar">
+            <ng-template #loggedOutTemplate>
             <ul *ngIf="!isLoggedIn">
                 <li>
                     <a routerLink="/auth/login">Login</a>
@@ -12,14 +13,19 @@
                     <a routerLink="/auth/register">Register</a>
                 </li>
             </ul>
+        </ng-template>
+
+        <ng-template #loggedInTemplate>
             <ul *ngIf="isLoggedIn">
                 <li>
-                    <a routerLink="/auth/profile">Profile</a>
+                    <a routerLink="/auth/profile">{{user?.firstName}}'s profile</a>
                 </li>
                 <li>
                     <a routerLink="/auth/logout">Logout</a>
                 </li>
             </ul>
+        </ng-template>
+            <ng-container *ngTemplateOutlet="isLoggedIn ? loggedInTemplate : loggedOutTemplate"></ng-container>
         </div>
     </div>
     <nav>
