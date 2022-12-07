@@ -6,27 +6,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { ThemeListComponent } from './theme-list/theme-list.component';
 import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 import { MainComponent } from './main/main.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
+import { ThemeModule } from './theme/theme.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThemeListComponent,
     RecentPostsComponent,
     MainComponent,
   ],
   imports: [
+    AuthModule,
+    ThemeModule,
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
     SharedModule,
-    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
