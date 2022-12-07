@@ -5,6 +5,8 @@ import { ThemeRoutingModule } from './theme-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
+import { RecentPostsComponent } from './recent-posts/recent-posts.component';
+import { MainComponent } from './main/main.component';
 
 
 
@@ -12,7 +14,9 @@ import { ThemeDetailComponent } from './theme-detail/theme-detail.component';
   declarations: [
     ThemeListComponent,
     NewThemeComponent,
-    ThemeDetailComponent
+    ThemeDetailComponent, 
+    MainComponent,
+    RecentPostsComponent
   ],
   imports: [
     CommonModule,
