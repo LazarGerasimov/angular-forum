@@ -23,7 +23,8 @@ import { HomeComponent } from './home/home.component';
   exports: [
     HeaderComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ]
 })
 export class CoreModule { }
