@@ -9,15 +9,17 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  constructor(private activatedRoute: ActivatedRoute , private router: Router, private authService: AuthService) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   loginHandler(): void {
     this.authService.user = {
       username: 'John'
     } as any;
+
+    const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+
+    this.router.navigate([returnUrl]);
   }
 
-   
-
-   
 }
+
