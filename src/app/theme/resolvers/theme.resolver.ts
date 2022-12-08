@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core'
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import {Observable} from 'rxjs'
 import { ApiService } from 'src/app/api.service';
-import { ITheme } from '../interfaces';
+import { ITheme } from '../../shared/interfaces';
 
 
 @Injectable({
