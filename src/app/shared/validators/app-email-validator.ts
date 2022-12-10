@@ -10,4 +10,4 @@ export function appEmailValidator(domains: string[]): ValidatorFn {
     }
 }
 
-    // return /[^@]{6,}@gmail\.(com|bg)/
+    // return /^[^@]{6,}@gmail\.(com|bg)$/
