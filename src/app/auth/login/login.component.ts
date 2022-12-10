@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -11,9 +11,15 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
+  @ViewChild(
+    NgForm,
+    {static: true}
+  ) form!:ElementRef<HTMLInputElement>;
+  
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   loginHandler(form: NgForm): void {
+    console.log(form);
     this.authService.user = {
       username: 'John'
     } as any;
