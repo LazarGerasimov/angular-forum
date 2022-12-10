@@ -1,9 +1,16 @@
 import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
-import {AbstractControl, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
+import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
 import { appEmailValidator } from './app-email-validator';
 
 @Directive({
-  selector: '[appEmail]'
+  selector: '[appEmail]',
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: AppEmailDirective,
+      multi: true
+    }
+  ]
 })
 export class AppEmailDirective implements OnChanges ,Validator {
 
