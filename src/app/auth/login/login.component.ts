@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
+import { appEmailDomains } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,8 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+  appEmailDomains = appEmailDomains;
 
   @ViewChild(
     NgForm,

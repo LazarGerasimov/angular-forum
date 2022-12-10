@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { appEmailDomains } from 'src/app/shared/constants';
+import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
 
 @Component({
   selector: 'app-register',
@@ -9,15 +11,15 @@ import { FormBuilder } from '@angular/forms';
 export class RegisterComponent {
 
   form = this.fb.group({
-    username: ['test1'],
-    email: ['testemail'],
-    ext: ['00359'],
-    tel: ['328139812'],
+    username: ['', [Validators.required]],
+    email: ['', [Validators.required, appEmailValidator(appEmailDomains)]],
+    ext: [''],
+    tel: [''],
     pass: this.fb.group({
-      password: ['test2'],
-      rePassword: ['test2']
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      rePassword: []
     }, {
-      validators: []
+      validators: [sameValueGroupValidator('password', 'rePassword')]
     })
   })
 
