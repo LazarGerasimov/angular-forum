@@ -19,7 +19,7 @@ export class LoginComponent {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   loginHandler(form: NgForm): void {
-    if (form.invalid) { return; }
+    if (form.invalid) { return; }   // add functionality to the button to avoid submit if req not met 
     this.authService.user = {
       username: 'John'
     } as any;
