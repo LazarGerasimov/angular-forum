@@ -15,9 +15,10 @@ export class RegisterComponent {
     passwords: this.fb.group({
       password: [],
       rePassword: []
+    }, {
+      validators: []
     })
-    
   })
 
-  constructor (private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 }
