@@ -13,14 +13,15 @@ export class AppEmailDirective implements OnChanges ,Validator {
 
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['appEmail']) {
-
+  ngOnChanges(changes: SimpleChanges): void {
+    const appEmailChange = changes['appEmail'];
+    if (appEmailChange) {
+      this.validator = appEmailValidator(appEmailChange.currentValue);
     }
   }
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    return appEmailValidator(this.appEmail);
+    return this.validator(control);
   }
   
 
