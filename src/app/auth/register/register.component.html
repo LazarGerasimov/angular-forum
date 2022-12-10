@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="register">
+<form [formGroup]="form" class="register" (ngSubmit)="registerHandler()">
 
     <fieldset>
         <h2>Registration Form</h2>
@@ -21,7 +21,7 @@
             <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                 Email is required!
             </p>
-            <p class="error" *ngIf="form.get('email')?.errors?.['minlength']">
+            <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">
                 Email is not valid!
             </p>
         </ng-container>
@@ -59,10 +59,7 @@
             <p *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched"
                 class="error">Repeat Password does not match password!</p>
         </ng-container>
-        {{form.value | json}}
-        {{form.get('pass')?.errors | json}}
-
-        <button disabled>Create Account</button>
+        <button [disabled]="form.invalid">Create Account</button>
 
         <p class="text-center">
             Have an account?

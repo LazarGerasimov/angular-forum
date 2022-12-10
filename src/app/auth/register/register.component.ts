@@ -11,7 +11,7 @@ import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/valid
 export class RegisterComponent {
 
   form = this.fb.group({
-    username: ['', [Validators.required]],
+    username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, appEmailValidator(appEmailDomains)]],
     ext: [''],
     tel: [''],
@@ -24,4 +24,8 @@ export class RegisterComponent {
   })
 
   constructor(private fb: FormBuilder) { }
+
+  registerHandler() {
+    
+  }
 }
