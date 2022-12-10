@@ -9,12 +9,13 @@ import { FormBuilder } from '@angular/forms';
 export class RegisterComponent {
 
   form = this.fb.group({
-    username: [],
-    email: [],
-    tel: [],
+    username: ['test1'],
+    email: ['testemail'],
+    ext: ['00359'],
+    tel: ['328139812'],
     passwords: this.fb.group({
-      password: [],
-      rePassword: []
+      password: ['test2'],
+      rePassword: ['test2']
     }, {
       validators: []
     })
