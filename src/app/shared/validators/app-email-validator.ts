@@ -6,7 +6,7 @@ export function appEmailValidator(domains: string[]): ValidatorFn {
     const re = new RegExp(`^[^@]{6,}@gmail\.${domainString}$`)
     return (control) => {
         
-        return re.test(control.value) ? null : {appEmailValidator: true}
+        return (control.value === '' || re.test(control.value)) ? null : {appEmailValidator: true};
     }
 }
 

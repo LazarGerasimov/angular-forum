@@ -12,7 +12,7 @@
             <p class="error" *ngIf="emailInput.errors?.['required']">
                 Email is required!
             </p>
-            <p class="error">
+            <p class="error" *ngIf="emailInput.errors?.['appEmailValidator']">
                 Email is not valid!
             </p>
         </ng-container>
