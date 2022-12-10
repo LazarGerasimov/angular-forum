@@ -13,13 +13,13 @@ export class LoginComponent {
 
   @ViewChild(
     NgForm,
-    {static: true}
-  ) form!:ElementRef<HTMLInputElement>;
-  
+    { static: true }
+  ) form!: ElementRef<HTMLInputElement>;
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   loginHandler(form: NgForm): void {
-    console.log(form);
+    if (form.invalid) { return; }
     this.authService.user = {
       username: 'John'
     } as any;
