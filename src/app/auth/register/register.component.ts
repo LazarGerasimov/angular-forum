@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  form = this.fb.group({
+    username: [],
+    email: [],
+    tel: [],
+    passwords: this.fb.group({
+      password: [],
+      rePassword: []
+    })
+    
+  })
+
+  constructor (private fb: FormBuilder) {}
 }
