@@ -1,17 +1,26 @@
-import { Directive, Input } from '@angular/core';
-import {AbstractControl, ValidationErrors, Validator } from '@angular/forms';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {AbstractControl, ValidationErrors, Validator, ValidatorFn } from '@angular/forms';
+import { appEmailValidator } from './app-email-validator';
 
 @Directive({
-  selector: '[appAppEmail]'
+  selector: '[appEmail]'
 })
-export class AppEmailDirective implements Validator {
+export class AppEmailDirective implements OnChanges ,Validator {
 
-  @Input() appAppEmail: string[] = [];
+  @Input() appEmail: string[] = [];
+
+  validator: ValidatorFn = () => null;
 
   constructor() { }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['appEmail']) {
+
+    }
+  }
+
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    throw new Error('Method not implemented.');
+    return appEmailValidator(this.appEmail);
   }
   
 
