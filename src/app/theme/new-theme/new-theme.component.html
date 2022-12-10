@@ -2,7 +2,7 @@
     <div class="header-background">
         <span>New Theme</span>
     </div>
-    <form #form="ngForm">
+    <form #form="ngForm" (ngSubmit)="newThemeHandler(form)">
         <div class="new-theme-title">
             <label for="themeName">Title <span class="red">*</span></label>
             <input type="text" name="themeName" ngModel id="themeName">
