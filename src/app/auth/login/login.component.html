@@ -21,13 +21,13 @@
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
                 <input #passwordInput="ngModel" type="password" ngModel name="password" id="password" placeholder="******" required
-                    [minlength]="5">
+                    [minlength]="5"> 
             </p>
             <ng-container *ngIf="passwordInput.touched">
-            <p class="error">
+            <p class="error" *ngIf="passwordInput.errors?.['required']">
                 Password is required!
             </p>
-            <p class="error">
+            <p class="error" *ngIf="passwordInput.errors?.['minlength']">   
                 Password must be at least 4 characters!
             </p>
         </ng-container>
