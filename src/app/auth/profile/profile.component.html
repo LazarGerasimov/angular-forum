@@ -6,7 +6,7 @@
             <p>
                 <ng-container *ngIf="showEditMode">
                     <input type="text" formControlName="username">
-                    <ng-container *ngIf="form.get('username')?.touched">
+                    <ng-container *ngIf="form.get('username')?.touched || formSubmitted">
                         <p *ngIf="form.get('username')?.errors?.['required']" class="error">
                             Username is required!
                         </p>
@@ -25,7 +25,7 @@
             <p>
                 <ng-container *ngIf="showEditMode">
                     <input type="text" formControlName="email">
-                    <ng-container *ngIf="form.get('email')?.touched">
+                    <ng-container *ngIf="form.get('email')?.touched || formSubmitted">
                         <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                             Email is required!
                         </p>
