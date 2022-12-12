@@ -41,6 +41,10 @@ export class ProfileComponent {
 
   saveProfile(): void {
     if(this.form.invalid) {return; }
-    console.log(this.form.value);
+    const {username, email, ext, tel} = this.form.value;
+    this.authService.user = {
+      username, email, tel: ext + ' ' + tel
+    } as any;
+    this.toggleEditMode();
   }
 }
