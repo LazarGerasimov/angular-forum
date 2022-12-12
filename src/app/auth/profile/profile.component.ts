@@ -11,13 +11,15 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent {
 
+  
+
   get user() {
     const {username, email, tel: telephone} = this.authService.user!;
-    const [ext, tel] = telephone.split(' ');
+    const [ext, ...tel] = telephone.split(' ');
     return {
       username,
       email,
-      tel,
+      tel: tel.join(' '),
       ext
     }
   }
