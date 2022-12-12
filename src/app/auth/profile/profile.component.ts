@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent {
 
-  
+  showEditMode = false;
 
   get user() {
     const {username, email, tel: telephone} = this.authService.user!;
@@ -32,4 +32,8 @@ export class ProfileComponent {
   })
 
   constructor (private fb: FormBuilder, private authService: AuthService) {}
+
+  toggleEditMode(): void {
+    this.showEditMode = !this.showEditMode;
+  }
 }
