@@ -6,10 +6,14 @@
             <p>
                 <ng-container *ngIf="showEditMode">
                     <input type="text" formControlName="username">
-                    <p *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required']"
-                        class="error">
-                        Username is required!
-                    </p>
+                    <ng-container *ngIf="form.get('username')?.touched">
+                        <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+                            Username is required!
+                        </p>
+                        <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
+                            Username should be at least 5 chars long!
+                        </p>
+                    </ng-container>
                 </ng-container>
                 <ng-container *ngIf="!showEditMode">
                     {{user.username}}
