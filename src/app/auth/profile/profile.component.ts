@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { appEmailDomains } from 'src/app/shared/constants';
 import { appEmailValidator } from 'src/app/shared/validators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,5 +18,5 @@ export class ProfileComponent {
     tel: [''],
   })
 
-  constructor (private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder, private authService: AuthService) {}
 }
