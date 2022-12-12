@@ -11,6 +11,17 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent {
 
+  get user() {
+    const {username, email, tel: telephone} = this.authService.user!;
+    const [ext, tel] = telephone.split(' ');
+    return {
+      username,
+      email,
+      tel,
+      ext
+    }
+  }
+
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, appEmailValidator(appEmailDomains)]],

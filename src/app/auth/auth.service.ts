@@ -9,8 +9,7 @@ export class AuthService {
   user: IUser | null = {
     username: 'John',
     email: 'test@gmail.bg',
-    ext: '359',
-    tel: '123123123'
+    tel: '00359 123123123'
   } as any;
 
   get isLoggedIn() {
