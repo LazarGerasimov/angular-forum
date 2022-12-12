@@ -31,9 +31,16 @@ export class ProfileComponent {
     tel: [''],
   })
 
-  constructor (private fb: FormBuilder, private authService: AuthService) {}
+  constructor (private fb: FormBuilder, private authService: AuthService) {
+    this.form.setValue(this.user);
+  }
 
   toggleEditMode(): void {
     this.showEditMode = !this.showEditMode;
+  }
+
+  saveProfile(): void {
+    if(this.form.invalid) {return; }
+    console.log(this.form.value);
   }
 }
