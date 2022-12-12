@@ -26,6 +26,6 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder) { }
 
   registerHandler() {
-    console.log(this.form.value);
+    if (this.form.invalid) { return; }
   }
 }
