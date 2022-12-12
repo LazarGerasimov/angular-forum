@@ -27,5 +27,6 @@ export class RegisterComponent {
 
   registerHandler() {
     if (this.form.invalid) { return; }
+    
   }
 }
