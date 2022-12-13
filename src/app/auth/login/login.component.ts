@@ -27,7 +27,7 @@ export class LoginComponent {
     this.authService.login(email!, password!)
     .subscribe(user => {
       this.authService.user = user;
-      this.router.navigate(['/themes/recent']);
+      this.router.navigate(['/']);
     })
 
     const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';

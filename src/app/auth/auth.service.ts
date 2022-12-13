@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IUser } from '../shared/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private user$$ = new BehaviorSubject(null);
 
   user: IUser | null = null;
 
@@ -21,6 +24,10 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http.post<any>('/api/login', { email, password });
+  }
+
+  logout() {
+    return this.http.post<void>('/api/logout', {});
   }
 
   getProfile() {
