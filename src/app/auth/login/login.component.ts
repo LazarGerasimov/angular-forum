@@ -23,9 +23,12 @@ export class LoginComponent {
 
   loginHandler(form: NgForm): void {
     if (form.invalid) { return; }   // add functionality to the button to avoid submit if req not met 
-    this.authService.user = {
-      username: 'John'
-    } as any;
+    const { email, password} = form.value;
+    this.authService.login(email!, password!)
+    .subscribe(user => {
+      this.authService.user = user;
+      this.router.navigate(['/themes/recent']);
+    })
 
     const returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
 
