@@ -29,6 +29,7 @@ export class RegisterComponent {
   registerHandler() {
     if (this.form.invalid) { return; }
     const { username, email, pass: { password, rePassword } = {}, tel } = this.form.value;
-    this.authService.register(username!, email!, password!, rePassword!, tel!);
+    this.authService.register(username!, email!, password!, rePassword!, tel || undefined)
+    .subscribe(res => console.log(res))
   }
 }
