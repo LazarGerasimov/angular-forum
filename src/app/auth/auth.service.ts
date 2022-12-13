@@ -8,7 +8,8 @@ import { IUser } from '../shared/interfaces';
 })
 export class AuthService {
 
-  private user$$ = new BehaviorSubject(null);
+  private user$$ = new BehaviorSubject<undefined | null | IUser>(undefined);
+  user$ = this.user$$.asObservable();
 
   user: IUser | null = null;
 
